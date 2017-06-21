@@ -48,23 +48,30 @@ def getEmail (webText):
     return email
 
 def nltkPractice (webText):
+
+    streetNumber = r'\d+'
+
+    address = re.findall(streetNumber,webText)
+    print address
+
+    #all the nouns in the middle
     tokenizedText = nltk.word_tokenize(webText)
 
     POStagged = nltk.pos_tag(tokenizedText)
 
     #print(POStagged)
     #get all nouns
-
     wordLength = range(len(POStagged)-1)
+    nounList = ''
 
     for x in wordLength:
-        word = POStagged[x]
-        consecutive_word = POStagged[x+1]
-        if word[1] == consecutive_word[1]:
-            nounList = word[1] + consecutive_word[1]
-            print "Noun: ", word, consecutive_word
-            print nounList
-            
+        #word = POStagged[x]
+        #consecutive_word = POStagged[x+1]
+        if POStagged[x][1] == POStagged[x+1][1]:
+            nounList += POStagged[x][0] + POStagged[x+1][0]
+            print "Noun: ", POStagged[x][0], POStagged[x+1][0]
+    print nounList
+
 
 
 url = 'https://achildshopefoundation.org/endeavors/haiti'
