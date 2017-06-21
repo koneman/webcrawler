@@ -55,9 +55,16 @@ def nltkPractice (webText):
     #print(POStagged)
     #get all nouns
 
-    for a,b in POStagged:
-        if b == 'NN':
-            print "Noun: ", a, b
+    wordLength = range(len(POStagged)-1)
+
+    for x in wordLength:
+        word = POStagged[x]
+        consecutive_word = POStagged[x+1]
+        if word[1] == consecutive_word[1]:
+            nounList = word[1] + consecutive_word[1]
+            print "Noun: ", word, consecutive_word
+            print nounList
+            
 
 
 url = 'https://achildshopefoundation.org/endeavors/haiti'
