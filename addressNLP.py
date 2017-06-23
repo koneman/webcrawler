@@ -7,7 +7,7 @@ import nltk
 import urllib
 import re
 
-
+#using consec nouns to find address
 #getting all text on a page
 def getHTMLtext (url):
     html = urllib.urlopen(url).read()
