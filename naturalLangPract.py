@@ -47,20 +47,52 @@ def getEmail (webText):
     print(email)
     return email
 
+def findConsecNouns(inputText):
+
+        #all the nouns in the middle
+        tokenizedText = nltk.word_tokenize(inputText)
+
+        POStagged = nltk.pos_tag(tokenizedText)
+
+        #print(POStagged)
+        #get all nouns
+        wordLength = range(len(POStagged)-1)
+        nounList = ''
+
+        for x in wordLength:
+            #word = POStagged[x]
+            #consecutive_word = POStagged[x+1]
+            if POStagged[x][1] == POStagged[x+1][1]:
+                nounList += POStagged[x][0] + POStagged[x+1][0]
+                #print "Noun: ", POStagged[x][0], POStagged[x+1][0]
+        #print nounList
+
+
 def nltkPractice (webText):
-    tokenizedText = nltk.word_tokenize(webText)
 
-    POStagged = nltk.pos_tag(tokenizedText)
+    streetNumber = r'\d+'
+    #address = re.compile(streetNumber)
+    address = re.findall(streetNumber, webText)
+    numberList = []
 
-    #print(POStagged)
-    #get all nouns
+    for number in address:
+        numberList.append(number)
 
-    for a,b in POStagged:
-        if b == 'NN':
-            print "Noun: ", a, b
+    #for number in address.finditer(webText):
+    #    location.append(number.end())
+    """
+    numberEndLoc = webText.find('165') + 4
+    neededText = webText[numberEndLoc:]
+    print neededText
+    """
+
+    for number in numberList:
+        numberEndLoc = webText.find(number) + len(number) + 1
+        neededText = webText[numberEndLoc:]
+        #print neededText
 
 
-url = 'https://achildshopefoundation.org/endeavors/haiti'
+url = 'https://achildshopefoundation.org'
 HTMLtext = getHTMLtext(url)
 #GetAddresses(url)
 
