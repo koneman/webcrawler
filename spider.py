@@ -153,14 +153,12 @@ def getAddress (webText):
     print(address)
     return address
 
-def GetData(url):
-    #return JSON
+
 
 #test
 #p = cleanHtml('https://achildshopefoundation.org/endeavors/haiti')
 #print p
 
-addressPossibilities = []
 
 
 url = 'https://achildshopefoundation.org/endeavors/haiti'
@@ -176,7 +174,7 @@ getPhoneNumber(HTMLtext)
 getEmail(HTMLtext)
 
 #address
-getAddress(HTMLtext)
+#getAddress(HTMLtext)
 
 #check if rss feed exists to scrap that good stuff
 if checkRSSFeed(url):
