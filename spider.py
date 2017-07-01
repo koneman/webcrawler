@@ -145,11 +145,11 @@ def getAddress (webText):
     #\d{3-10}'
     #r'\d+[ ](?:[A-Za-z0-9.-]+[ ]?)'
 
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
     comp = re.compile(addressCombinations, re.I )
 
     #address = re.findall(addressCombinations,webText)
-    address = comp.findall("19096  harleigh dr san jose ca 95070")
+    address = comp.findall('19096 harleigh drive saratoga, ca 95070')
     print(address)
     return address
 
@@ -174,7 +174,7 @@ getPhoneNumber(HTMLtext)
 getEmail(HTMLtext)
 
 #address
-#getAddress(HTMLtext)
+getAddress(HTMLtext)
 
 #check if rss feed exists to scrap that good stuff
 if checkRSSFeed(url):
