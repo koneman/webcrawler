@@ -158,9 +158,6 @@ def getAddress (webText):
 #test
 #p = cleanHtml('https://achildshopefoundation.org/endeavors/haiti')
 #print p
-
-
-
 url = 'https://achildshopefoundation.org/endeavors/haiti'
 HTMLtext = getHTMLtext(url)
 #GetAddresses(url)
@@ -174,7 +171,7 @@ getPhoneNumber(HTMLtext)
 getEmail(HTMLtext)
 
 #address
-getAddress(HTMLtext)
+#getAddress(HTMLtext)
 
 #check if rss feed exists to scrap that good stuff
 if checkRSSFeed(url):
