@@ -2,7 +2,7 @@ import scrapy
 
 
 class projectSpider(scrapy.Spider):
-    name = "projects"
+    name = "quotes"
 
     def start_requests(self):
         urls = [
@@ -18,5 +18,3 @@ class projectSpider(scrapy.Spider):
         with open(filename, 'wb') as f:
             f.write(response.body)
         self.log('Saved file %s' % filename)
-
-#
